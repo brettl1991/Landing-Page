@@ -107,6 +107,8 @@ section.features-section {
 ul.features-list {
   margin: 0;
   padding-left: 0.1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
 
   li {
     font-size: 1.1em;
@@ -194,7 +196,6 @@ iframe {
 
 nav.menu-btn {
   display: block;
-
 }
 
 nav {
@@ -212,12 +213,11 @@ nav {
   }
 
   li {
-
     a {
       color: white;
       text-decoration: none;
       display: block;
-      padding: .5em;
+      padding: 0.5em;
       font-size: 1.3em;
       text-align: right;
 
@@ -230,8 +230,60 @@ nav {
 
 .mobile-menu-exit {
   float: right;
-  margin: .5em;
+  margin: 0.5em;
   cursor: pointer;
+}
 
+@media only screen and (min-width: 768px) {
+  .mobile-menu,
+  .mobile-menu-exit {
+    display: none;
+  }
 
+  .navbar .container {
+    display: grid;
+    grid-template-columns: 180px auto;
+    justify-content: unset;
+  }
+
+  .navbar nav {
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    position: unset;
+    height: auto;
+    width: 100%;
+    padding: 0;
+
+    ul {
+      display: flex;
+    }
+
+    a {
+      color: black;
+      font-size: 1em;
+      padding: 0.1em 1em;
+    }
+
+    ul.primary-nav {
+      margin: 0;
+    }
+
+    li.current a {
+      font-weight: bold;
+    }
+
+    li.go-premium-cta a {
+      color: var(--primary-color);
+      border: 3px solid var(--primary-color);
+      border-radius: 5em;
+      font-weight: bold;
+      margin-top: -0.2em;
+
+      &:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+    }
+  }
 }
